@@ -1,0 +1,23 @@
+{
+  "name": "serverless-logger",
+  "version": "1.0.0",
+  "description": "Simple logger for Lambda functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverlesspolska/serverless-logger.git"
+  },
+  "keywords": [
+    "Lambda",
+    "logger"
+  ],
+  "author": "Pawel Zubkiewicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serverlesspolska/serverless-logger/issues"
+  },
+  "homepage": "https://github.com/serverlesspolska/serverless-logger#readme"
+}
