@@ -42,9 +42,9 @@ At the same time when running tests locally logs don't clutter our console.
 
 
 
-# Why no level?
+# Why no levels?
 Usually there are different levels of logs i.e `debug`, `info`, `warn`, `error`. They make sense in huge code projects. 
 
 However, after years of working with Lambda I found that for most projects that *don't handle huge volumes* of transactions they are pure *overkill*.
 
-I order to constrain CloudWatch costs I prefer to set log retention period for several weeks instead of dealing with different log levels. This approach also makes code easier to read.
+In order to constrain CloudWatch costs I prefer to set log retention period for several weeks instead of dealing with different log levels. This approach also makes code easier to read.
