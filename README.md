@@ -3,28 +3,34 @@ Simple logger for AWS Lambda functions that has two cool features:
 * display filename as a prefix in each log message
 * hide log messages when running tests but keep log messages when used in Lambda.
 
+# Version 2.0.0 - breaking changes
+Version 2.0.0 is using ES modules and introduces breaking changes!
+
+It was tested with Node.js version 20.
 ## How to use?
 Install it using `npm`:
 ```
 npm i serverless-logger
 ```
-Initialize it like that. Don't forget about `(__filename)`.
+Initialize it like that. Don't forget about `import.meta.url`. Always use `import.meta.url` as a parameter value. It provides the "file:" URL of your module (file).
 ```JavaScript
-const log = require('serverless-logger')(__filename)
+import { createLogger } from 'serverless-logger'
+
+const log = createLogger(import.meta.url);
 ```
 Next you can use the `log` function in your code in the same way as ordinary `console.log()`. Similarly, it takes one or more parameters.
 
 For example you could use it in a Lambda function like that:
 ```JavaScript
-const log = require('serverless-logger')(__filename)
+import { createLogger } from 'serverless-logger'
 
-const handler = async (event) => {
+const log = createLogger(import.meta.url);
+
+export const handler = async (event) => {
   log('Starting Lambda function')
   /*   do your thing here  */
   log('Lambda function finished')
 }
-
-module.exports.handler = handler
 ```
 
 Your log messages (which are stored in Cloudwatch) will include name of the file from which they originate. For example, given that your code is divided to several files:
